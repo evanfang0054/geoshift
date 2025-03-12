@@ -1,0 +1,55 @@
+{
+  "name": "geoshift",
+  "version": "1.0.0",
+  "description": "转换中国地区不同坐标系统的工具库，支持 WGS84(GPS)、GCJ02(高德)和 BD09(百度) 坐标系统之间的互相转换",
+  "keywords": [
+    "geo",
+    "converter",
+    "coordinates",
+    "transformation",
+    "shift"
+  ],
+  "author": "evanfang",
+  "homepage": "https://github.com/evanfang0054/geoshift.git#readme",
+  "license": "MIT",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "import": "./lib/esm/index.js",
+      "require": "./lib/cjs/index.js"
+    }
+  },
+  "files": [
+    "lib"
+  ],
+  "bugs": {
+    "url": "https://github.com/evanfang0054/geoshift.git/issues"
+  },
+  "scripts": {
+    "build": "npm run build:types && npm run build:cjs && npm run build:esm",
+    "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "typescript": "^4.9.0",
+    "@types/jest": "^29.5.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": ["**/__tests__/**/*.test.ts"],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.d.ts"
+    ]
+  }
+}
